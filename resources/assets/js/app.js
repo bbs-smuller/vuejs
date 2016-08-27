@@ -1,11 +1,11 @@
 //import _ from 'lodash'
 import Vue from 'vue'
-import Counter from './components/Counter.vue'
+import App from './components/App.vue'
 import store from './vuex/store'
 
-Vue.component('counter', Counter)
+Vue.component('app', App)
 
-const app = new Vue({
+const todoMvcApp = new Vue({
     el: '#app',
     store
 })

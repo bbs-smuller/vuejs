@@ -6,6 +6,7 @@
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.4",
     "lodash": "^4.15.0",
+    "todomvc-app-css": "^2.0.6",
     "vue": "^2.0.0-rc.3",
     "vuex": "^2.0.0-rc.5"
   }

@@ -1,35 +1,50 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as getters from './getters'
+import plugins from './plugins'
 import * as actions from './actions'
-import * as mutations from './mutations'
 
 Vue.use(Vuex)
 
+export const STORAGE_KEY = 'todos-vuejs'
+
 const state = {
-	count: 0,
-	history: []
+	todos: JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
 }
 
-const store = new Vuex.Store({
-	state,
-	getters,
-	actions,
-	mutations
-})
-
-if (module.hot) {
-	module.hot.accept([
-		'./getters',
-		'./actions',
-		'./mutations'
-	], () => {
-		store.hotUpdate({
-			getters: require('./getters'),
-			actions: require('./actions'),
-			mutations: require('./mutations')
+const mutations = {
+	ADD_TODO (state, { text }) {
+		state.todos.push({
+			text,
+			done: false
 		})
-	})
+	},
+
+	DELETE_TODO (state, { todo }) {
+		state.todos.splice(state.todos.indexOf(todo), 1)
+	},
+
+	TOGGLE_TODO (state, { todo }) {
+		todo.done = ! todo.done
+	},
+
+	EDIT_TODO (state, { todo, value }) {
+		todo.text = value
+	},
+
+	TOGGLE_ALL (state, { done }) {
+		state.todos.forEach((todo) => {
+			todo.done = done
+		})
+	},
+
+	CLEAR_COMPLETED (state) {
+		state.todos = state.todos.filter(todo => ! todo.done)
+	}
 }
 
-export default store
+export default new Vuex.Store({
+	state,
+	actions,
+	mutations,
+	plugins
+})
