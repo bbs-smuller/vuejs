@@ -6,6 +6,12 @@
 
 ## GIT helpers
 
- * `git tag -a <tagname> -m "<tag description>"`
+### Save and push tag
+
+ * `git tag -a <tagname> -m "tag descriptio"`
 
  * `git push origin <tagname>`
+
+### Create branch from tag
+
+`git checkout -b <branchname> <tagname>`
