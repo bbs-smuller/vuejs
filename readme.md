@@ -8,7 +8,7 @@
 
 ### Save and push tag
 
- * `git tag -a <tagname> -m "tag descriptio"`
+ * `git tag -a <tagname> -m "tag description"`
 
  * `git push origin <tagname>`
 

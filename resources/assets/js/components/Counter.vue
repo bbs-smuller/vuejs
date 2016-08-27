@@ -1,10 +1,13 @@
 <template>
 	<div id="Counter">
-		Clicked: {{ $store.state.count }} times, count is {{ evenOrOdd }}.
+		Value: {{ count }}
 		<button @click="increment">+</button>
 		<button @click="decrement">-</button>
 		<button @click="incrementIfOdd">Increment if odd</button>
 		<button @click="incrementAsync">Increment async</button>
+		<div>
+			<div>Recent History (last 5 entries): {{ recentHistory }}</div>
+		</div>
 	</div>
 </template>
 
@@ -13,7 +16,8 @@
 
 	export default {
 		computed: mapGetters([
-			'evenOrOdd'
+			'count',
+			'recentHistory'
 		]),
 		methods: mapActions([
 			'increment',
