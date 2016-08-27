@@ -4,6 +4,8 @@
 
  * `counter` tag for Vuex default counter example
 
+ * `counter-hot` tag for Vuex hot reload counter example
+
 ## GIT helpers
 
 ### Save and push tag
