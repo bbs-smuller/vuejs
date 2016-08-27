@@ -1,4 +1,4 @@
-import _ from 'lodash'
+//import _ from 'lodash'
 import Vue from 'vue'
 import Counter from './components/Counter.vue'
 import store from './store'
