@@ -39,14 +39,9 @@
                 const value = e.target.value.trim()
                 const { todo } = this
                 if (! value) {
-                    this.deleteTodo({
-                        todo
-                    })
+                    this.deleteTodo({ todo })
                 } else if (this.editing) {
-                    this.editTodo({
-                        todo,
-                        value
-                    })
+                    this.editTodo({ todo, value })
                     this.editing = false
                 }
             },
